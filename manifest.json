@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "ApplyHeroClone",
+  "version": "1.0",
+  "description": "AI-powered job application assistant for LinkedIn and Indeed.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.linkedin.com/jobs/*",
+    "*://*.indeed.com/viewjob/*",
+    "https://api.myservice.com/*"
+  ],
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.linkedin.com/jobs/*",
+        "*://*.indeed.com/viewjob/*"
+      ],
+      "js": ["src/injector.js"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
