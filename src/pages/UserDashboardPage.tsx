@@ -4,7 +4,7 @@ import { api } from '@/services/api';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Briefcase, ChartBar, Settings, FileText, Calendar } from 'lucide-react';
+import { Briefcase, BarChart as ChartBar, Settings, FileText, Calendar } from 'lucide-react';
 import { format } from 'date-fns';
 
 // Import components
