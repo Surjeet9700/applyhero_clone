@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AutoApply AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      width: 320px;
+      min-height: 400px;
+      padding: 1rem;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex flex-col h-full">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-6">
+      <h1 class="text-xl font-bold text-gray-900">AutoApply AI</h1>
+      <div id="statusIndicator" class="h-3 w-3 rounded-full bg-gray-300"></div>
+    </div>
+
+    <!-- Login Form (shown when not authenticated) -->
+    <div id="loginForm" class="hidden">
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" id="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Password</label>
+          <input type="password" id="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+        </div>
+        <button id="loginBtn" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors">
+          Login
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Content (shown when authenticated) -->
+    <div id="mainContent" class="hidden flex-1 flex flex-col">
+      <!-- Stats -->
+      <div class="grid grid-cols-2 gap-4 mb-6">
+        <div class="bg-white p-4 rounded-lg shadow-sm">
+          <div class="text-sm text-gray-500">Today's Apps</div>
+          <div class="text-2xl font-bold" id="todayApps">0</div>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-sm">
+          <div class="text-sm text-gray-500">Total Apps</div>
+          <div class="text-2xl font-bold" id="totalApps">0</div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="space-y-4 mb-6">
+        <button id="startBtn" class="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors">
+          Start Auto-Apply
+        </button>
+        <button id="stopBtn" class="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors hidden">
+          Stop Auto-Apply
+        </button>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="flex-1">
+        <h3 class="text-sm font-medium text-gray-700 mb-2">Recent Activity</h3>
+        <div id="activityLog" class="bg-white rounded-md shadow-sm p-3 h-32 overflow-y-auto text-sm">
+          <!-- Activity items will be inserted here -->
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="mt-4 pt-4 border-t border-gray-200">
+        <button id="logoutBtn" class="text-sm text-gray-500 hover:text-gray-700">Logout</button>
+        <a href="/dashboard" target="_blank" class="float-right text-sm text-blue-600 hover:text-blue-800">Open Dashboard</a>
+      </div>
+    </div>
+
+    <!-- Status Messages -->
+    <div id="status" class="text-green-600 text-sm mt-2"></div>
+    <div id="error" class="text-red-600 text-sm mt-2"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

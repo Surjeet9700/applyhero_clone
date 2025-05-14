@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, Zap, FileText, Users } from 'lucide-react';
+import { Briefcase, Zap, FileText, Users, UserPlus } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 
 const HomePage: React.FC = () => {
